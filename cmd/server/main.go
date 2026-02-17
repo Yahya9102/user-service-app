@@ -1,17 +1,20 @@
 package main
 
 import (
-	"user-service-app/internals/api"
-	"user-service-app/internals/repository"
-	"user-service-app/internals/service"
+	"fmt"
+	"log"
+	"net/http"
 )
 
 func main() {
 
-	repo := repository.NewUserRepository()
-	userService := service.NewUserService(repo)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-	api.RuntMenu(userService)
+		fmt.Fprintln(w,"THE API IS WORKING")
 
+	})
+	
+	 fmt.Println("Servern running on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 
 }
