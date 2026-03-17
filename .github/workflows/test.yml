@@ -1,0 +1,25 @@
+name: Go tests CI
+
+on:
+  push:
+    branches: [main, gin-intro]
+  pull_request:
+    branches: [main, gin-intro]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 
+      
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+
+      - name: Install dependencies
+        run: go mod tidy
+        
+      - name: Run tests
+        run: go test -v ./...
