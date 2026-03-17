@@ -40,7 +40,7 @@ func TestGetAllUser(t *testing.T) {
 	repo := NewUserRepository()
 
 	repo.Add(models.User{Name: "A", Age: 20})
-	repo.Add(models.User{Name: "C", Age: 30})
+	repo.Add(models.User{Name: "B", Age: 30})
 	
 
 	
