@@ -2,7 +2,7 @@ name: Go tests CI
 
 on:
   push:
-    branches: [main, gin-intro, yahyas-branch]
+    branches: [yahyas-branch]
   pull_request:
     branches: [main, gin-intro]
 
